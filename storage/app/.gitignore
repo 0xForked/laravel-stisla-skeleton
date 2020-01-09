@@ -1,0 +1,6 @@
+*
+!public/
+!backups/
+!restore/
+!schema/
+!.gitignore
