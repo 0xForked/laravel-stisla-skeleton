@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/', 'LandingController@index')->name('landing');
+// Route::get('/', 'LandingController@index')->name('landing');
 Route::get('/articles', function () { abort(404); })->name('articles');
 Route::get('/articles/{slug}', function () { abort(404); })->name('articles.detail');
 Route::get('/contacts', function () { abort(404); })->name('contacts');
@@ -24,7 +24,11 @@ Route::get('/docs/{version}', function () { abort(404); })->name('docs');
 Route::get('/helps', function () { abort(404); })->name('helps');
 Route::get('/helps/{topic}', function () { abort(404); })->name('help.detail');
 
-Auth::routes(['verify' => true]);
+Auth::routes([
+    'register' => (isset(app_settings()['site_auth_registration']->value)) ? app_settings()['site_auth_registration']->value : true,
+    'reset' => (isset(app_settings()['site_auth_password_reset']->value)) ? app_settings()['site_auth_password_reset']->value : true,
+    'verify' => (isset(app_settings()['site_auth_email_verify']->value)) ? app_settings()['site_auth_email_verify']->value : true,
+]);
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/route-verify', function () {
@@ -91,6 +95,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::get('/settings', 'SettingController@index')->name('app.setting');
             Route::put('/settings/generals', 'SettingController@updateGeneralData')->name('app.setting.generals');
             Route::put('/settings/contacts', 'SettingController@updateContactData')->name('app.setting.contacts');
+            Route::put('/settings/auth', 'SettingController@updateAuthData')->name('app.setting.auth');
             Route::get('/settings/databases/backup', 'DatabaseSettingController@create')->name('setting.database.backup');
             Route::get('/settings/databases/download/{file_name}', 'DatabaseSettingController@download')->name('setting.database.download');
             Route::get('/settings/databases/delete/{file_name}', 'DatabaseSettingController@delete')->name('setting.database.delete');

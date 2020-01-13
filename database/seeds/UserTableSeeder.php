@@ -22,7 +22,7 @@ class UserTableSeeder extends Seeder
             'name' => 'Administration',
             'username' => 'admin',
             'phone' => '+6282270001111',
-            'email' => 'admin@si2a.id',
+            'email' => 'admin@skeleton.id',
             'email_verified_at' => now(),
             'password' => Hash::make('secret'),
             'status' => 'ACTIVE'
@@ -35,7 +35,7 @@ class UserTableSeeder extends Seeder
             'name' => 'Staff',
             'username' => 'staff',
             'phone' => '+6282270003333',
-            'email' => 'staff@si2a.id',
+            'email' => 'staff@skeleton.id',
             'email_verified_at' => now(),
             'password' => Hash::make('secret'),
             'status' => 'ACTIVE'

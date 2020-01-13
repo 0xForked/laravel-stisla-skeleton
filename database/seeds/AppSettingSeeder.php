@@ -15,11 +15,11 @@ class AppSettingSeeder extends Seeder
         $data = [
             [
                 'key' => 'site_title',
-                'value' => 'SI2A'
+                'value' => 'Skeleton'
             ],
             [
                 'key' => 'site_description',
-                'value' => 'SISTEM INFORMASI INVENTORI APOTIK'
+                'value' => 'Laravel Stisla Skeleton'
             ],
             [
                 'key' => 'site_logo',
@@ -39,19 +39,19 @@ class AppSettingSeeder extends Seeder
             ],
             [
                 'key' => 'site_email',
-                'value' => 'admin@si2a.id'
+                'value' => 'admin@skeleton.id'
             ],
             [
                 'key' => 'site_facebook_link',
-                'value' => 'https://fb.me/si2a'
+                'value' => 'https://fb.me/skeleton'
             ],
             [
                 'key' => 'site_twitter_link',
-                'value' => 'https://twitter.com/si2a'
+                'value' => 'https://twitter.com/skeleton'
             ],
             [
                 'key' => 'site_instagram_link',
-                'value' => 'https://instagram.com/si2a'
+                'value' => 'https://instagram.com/skeleton'
             ],
             [
                 'key' => 'site_address_coordinate',
@@ -64,6 +64,22 @@ class AppSettingSeeder extends Seeder
             [
                 'key' => 'site_db_last_backup',
                 'value' => 'NOT_SET'
+            ],
+            [
+                'key' => 'site_auth_registration',
+                'value' => 1
+            ],
+            [
+                'key' => 'site_auth_password_reset',
+                'value' => 1
+            ],
+            [
+                'key' => 'site_auth_email_verify',
+                'value' => 1
+            ],
+            [
+                'key' => 'site_new_user_role',
+                'value' => 3
             ],
         ];
 
