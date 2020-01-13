@@ -71,7 +71,7 @@
                                 {{-- href="#pills-backup" --}}
                                 {{-- aria-controls="pills-backup" --}}
                                 aria-selected="true"
-                            >Automations</a>
+                            >Otomatisasi</a>
                         </li>
                     </ul>
                 </div>
