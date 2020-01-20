@@ -77,7 +77,16 @@ class DatabaseSettingController extends Controller
         if (!$disk->exists($file_new_name)) {
             return redirect()->back()->with('error', "Failed to restore database, Sql file not found.");
         }
-        // migration/database restore function
+
+        Artisan::call('migrate:reset', ['--force' => true]);
+
+        DB::unprepared(File::get(storage_path('app/restore/').$file_new_name));
+
+        unlink(storage_path('app/restore/'.$file_new_name));
+
+        Auth::logout();
+
+        return redirect('/login')->with('restore', 'Database berhasil direstore silahkan login kembali untuk mengakses aplikasi.');
     }
 
 }
